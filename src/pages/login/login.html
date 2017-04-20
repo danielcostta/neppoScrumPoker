@@ -10,23 +10,23 @@
 
     <ion-list no-lines>
       <ion-item>
-        <ion-label floating>Usuário</ion-label>
-        <ion-input name="username" type="text" spellcheck="false" autocapitalize="off"
-                   [formControl]="formLogin.controls['username']"></ion-input>
+        <ion-label floating>E-mail</ion-label>
+        <ion-input [(ngModel)]="email" type="text" spellcheck="false" autocapitalize="off"
+                   [formControl]="formLogin.controls['email']"></ion-input>
       </ion-item>
-      <ion-item *ngIf="formLogin.get('username').errors && formLogin.get('username').dirty">
-        <p *ngIf="formLogin.get('username').hasError('required')">Campo obrigatório</p>
+      <ion-item *ngIf="formLogin.get('email').errors && formLogin.get('email').dirty">
+        <p *ngIf="formLogin.get('email').hasError('required')">Campo obrigatório</p>
       </ion-item>
 
       <ion-item>
         <ion-label floating>Senha</ion-label>
-        <ion-input name="password" type="password" [formControl]="formLogin.controls['password']"></ion-input>
+        <ion-input [(ngModel)]="password" type="password" [formControl]="formLogin.controls['password']"></ion-input>
       </ion-item>
       <ion-item *ngIf="formLogin.get('password').errors && formLogin.get('password').dirty">
         <p *ngIf="formLogin.get('password').hasError('required')">Campo obrigatório</p>
       </ion-item>
     </ion-list>
 
-    <button ion-button type="submit" [disabled]="!formLogin.valid" block (click)="submit()">Entrar</button>
+    <button ion-button type="submit" [disabled]="!formLogin.valid" block (click)="login()">Entrar</button>
   </form>
 </ion-content>
