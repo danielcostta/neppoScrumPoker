@@ -44,7 +44,7 @@ $ ionic platform add android
 
 Após conectar o celular ao computador, execute o comando abaixo:
 ```bash
-$ ionic run android -l -c --device
+$ ionic cordova:run android --device
 ```
 Obs.: Para executar seu aplicativo, tudo o que você precisa fazer é [ativar a depuração USB e o Modo de desenvolvedor](https://developer.android.com/studio/run/device.html#developer-device-options) em seu dispositivo Android.
 
