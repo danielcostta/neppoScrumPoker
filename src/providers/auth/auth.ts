@@ -11,7 +11,7 @@ export class AuthProvider {
   public api_url: string;
 
   constructor(public http: Http, public storage: Storage) {
-    this.api_url = 'http://localhost:8080/';
+    this.api_url = 'http://localhost:8080/api/v1/';
   }
 
   checkAuthentication() {
@@ -25,7 +25,7 @@ export class AuthProvider {
         let headers = new Headers();
         headers.append('Authorization', this.token);
 
-        this.http.get(this.api_url + 'api/auth/protected', {headers: headers})
+        this.http.get(this.api_url + 'auth/protected', {headers: headers})
           .subscribe(res => {
             resolve(res);
           }, (err) => {
@@ -43,7 +43,7 @@ export class AuthProvider {
       let headers = new Headers();
       headers.append('Content-Type', 'application/json');
 
-      this.http.post(this.api_url + 'api/auth/login', JSON.stringify(credentials), {headers: headers})
+      this.http.post(this.api_url + 'auth/login', JSON.stringify(credentials), {headers: headers})
         .subscribe(res => {
 
           let data = res.json();
